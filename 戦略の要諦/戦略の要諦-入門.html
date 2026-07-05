@@ -1,0 +1,1096 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="リチャード・P・ルメルト『戦略の要諦』の中心概念を、初学者向けに課題・最重要ポイント・診断・フォーカスの順で解説するページ">
+  <title>『戦略の要諦』入門 — 最重要ポイントから考える戦略</title>
+  <style>
+    :root {
+      --ink: #17211c;
+      --muted: #55615a;
+      --paper: #f6f3eb;
+      --surface: #fffdf8;
+      --surface-2: #edf3ed;
+      --green: #24513c;
+      --green-2: #3f7659;
+      --amber: #c47a2c;
+      --amber-soft: #fff0d9;
+      --red: #9b4338;
+      --red-soft: #fae9e5;
+      --line: #d7d9d1;
+      --shadow: 0 14px 40px rgba(28, 48, 37, .09);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 90% 6%, rgba(196, 122, 44, .12), transparent 24rem),
+        linear-gradient(180deg, #f9f7f1 0, var(--paper) 24rem);
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+      line-height: 1.8;
+    }
+
+    a { color: var(--green); text-underline-offset: .18em; }
+    a:hover { color: var(--amber); }
+    strong { color: #123c2a; }
+    code {
+      padding: .12em .38em;
+      border-radius: .35em;
+      background: #ecece6;
+      font-family: ui-monospace, monospace;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: .6rem;
+      left: .6rem;
+      z-index: 100;
+      padding: .65rem 1rem;
+      color: white;
+      background: var(--green);
+      border-radius: 8px;
+      transform: translateY(-150%);
+    }
+    .skip-link:focus { transform: none; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 5.2rem 1.5rem 4.2rem;
+      color: #f8fbf7;
+      background:
+        linear-gradient(120deg, rgba(9, 35, 24, .98), rgba(36, 81, 60, .94)),
+        repeating-linear-gradient(135deg, transparent 0 18px, rgba(255,255,255,.025) 18px 19px);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -7rem;
+      bottom: -12rem;
+      width: 28rem;
+      height: 28rem;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 48% 52% 63% 37%;
+      transform: rotate(18deg);
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: var(--max);
+      margin: auto;
+    }
+    .eyebrow {
+      margin: 0 0 .8rem;
+      color: #d6e7dc;
+      font-size: .83rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-family: "Noto Serif JP", "Yu Mincho", serif;
+      font-size: clamp(2.25rem, 6vw, 4.7rem);
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: 1.2;
+    }
+    .hero-lead {
+      max-width: 760px;
+      margin: 1.5rem 0 0;
+      color: #e4eee8;
+      font-size: clamp(1rem, 2.2vw, 1.22rem);
+    }
+    .hero-answer {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+      max-width: 880px;
+      margin-top: 2.3rem;
+      padding: 1.25rem 1.4rem;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(6px);
+    }
+    .hero-answer .number {
+      display: grid;
+      width: 2.4rem;
+      height: 2.4rem;
+      place-items: center;
+      color: #193628;
+      background: #f3c98f;
+      border-radius: 50%;
+      font-weight: 800;
+    }
+    .hero-answer p { margin: 0; }
+    .hero-answer strong { color: #f8fbf7; }
+
+    .page {
+      display: grid;
+      grid-template-columns: 250px minmax(0, 1fr);
+      gap: 3rem;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 3rem 1.5rem 6rem;
+    }
+    .toc {
+      align-self: start;
+      position: sticky;
+      top: 1.2rem;
+      padding: 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,253,248,.88);
+      box-shadow: 0 8px 28px rgba(30, 45, 36, .06);
+      backdrop-filter: blur(8px);
+    }
+    .toc p {
+      margin: 0 0 .75rem;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .toc ol {
+      display: grid;
+      gap: .48rem;
+      margin: 0;
+      padding-left: 1.25rem;
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+    main { min-width: 0; }
+    section {
+      scroll-margin-top: 1rem;
+      margin-bottom: 5rem;
+    }
+    h2 {
+      margin: 0 0 1.3rem;
+      font-family: "Noto Serif JP", "Yu Mincho", serif;
+      font-size: clamp(1.75rem, 4vw, 2.55rem);
+      line-height: 1.35;
+      letter-spacing: -.025em;
+    }
+    h3 {
+      margin: 2.2rem 0 .7rem;
+      font-size: 1.22rem;
+      line-height: 1.5;
+    }
+    .section-no {
+      display: block;
+      margin-bottom: .3rem;
+      color: var(--amber);
+      font-family: ui-monospace, monospace;
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    .lead {
+      max-width: 780px;
+      color: #344139;
+      font-size: 1.07rem;
+    }
+    .type {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: .75rem;
+      padding: .18rem .65rem;
+      border: 1px solid #b9c8bd;
+      border-radius: 999px;
+      color: var(--green);
+      background: #f5faf6;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .card {
+      padding: 1.35rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 7px 22px rgba(35, 49, 41, .045);
+    }
+    .card h3 { margin-top: 0; }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .not-strategy { border-top: 4px solid var(--red); }
+    .is-strategy { border-top: 4px solid var(--green-2); }
+    .not-strategy h3 { color: var(--red); }
+    .is-strategy h3 { color: var(--green); }
+
+    .quote {
+      margin: 1.7rem 0;
+      padding: 1.35rem 1.55rem;
+      border-left: 5px solid var(--amber);
+      background: var(--amber-soft);
+      font-family: "Noto Serif JP", "Yu Mincho", serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+    }
+    .note {
+      margin: 1.5rem 0;
+      padding: 1rem 1.2rem;
+      border: 1px solid #c8d5cb;
+      border-radius: 12px;
+      background: var(--surface-2);
+    }
+    .note strong { display: inline-block; margin-right: .5em; }
+    .warning {
+      border-color: #e1b7ae;
+      background: var(--red-soft);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: .6rem;
+      margin: 2rem 0;
+    }
+    .flow-step {
+      position: relative;
+      min-height: 8rem;
+      padding: 1rem .8rem;
+      border: 1px solid #bdcbbf;
+      border-radius: 13px;
+      background: var(--surface);
+      text-align: center;
+    }
+    .flow-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -.72rem;
+      z-index: 2;
+      width: 1rem;
+      color: var(--amber);
+      font-weight: 900;
+      transform: translateY(-50%);
+    }
+    .flow-step b {
+      display: block;
+      margin-bottom: .4rem;
+      color: var(--green);
+    }
+    .flow-step small {
+      display: block;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .crux {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 1.2rem;
+      align-items: stretch;
+      margin-top: 1.5rem;
+    }
+    .crux-visual {
+      display: grid;
+      place-items: center;
+      min-height: 310px;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      color: white;
+      background:
+        radial-gradient(circle at 49% 52%, #e7a44f 0 9%, transparent 9.5%),
+        linear-gradient(136deg, transparent 0 44%, rgba(255,255,255,.16) 44% 46%, transparent 46%),
+        linear-gradient(37deg, transparent 0 54%, rgba(255,255,255,.12) 54% 56%, transparent 56%),
+        #244a38;
+      box-shadow: var(--shadow);
+    }
+    .crux-visual div {
+      max-width: 15rem;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 12px;
+      background: rgba(9,28,19,.5);
+      text-align: center;
+    }
+    .crux-visual b { color: #ffd49b; font-size: 1.25rem; }
+    .crux-definition {
+      padding: 1.6rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+    .crux-definition ol { padding-left: 1.2rem; }
+
+    .matrix {
+      display: grid;
+      grid-template-columns: 3.2rem 1fr 1fr;
+      grid-template-rows: auto 1fr 1fr;
+      gap: .5rem;
+      max-width: 710px;
+      margin: 2rem auto;
+    }
+    .axis-x, .axis-y {
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+    .axis-x { min-height: 2.3rem; }
+    .axis-y {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+    }
+    .matrix-cell {
+      min-height: 145px;
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--surface);
+    }
+    .matrix-cell b { display: block; margin-bottom: .35rem; }
+    .matrix-cell small { color: var(--muted); }
+    .matrix-cell.focus {
+      border: 2px solid var(--green-2);
+      background: #e5f2e8;
+      box-shadow: 0 9px 24px rgba(36,81,60,.11);
+    }
+    .matrix-cell.prepare { background: #fff4df; }
+    .blank { grid-column: 1; grid-row: 1; }
+
+    .types {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .type-card {
+      padding: 1.25rem;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--surface);
+    }
+    .type-card .num {
+      color: var(--amber);
+      font-family: ui-monospace, monospace;
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+    .type-card h3 { margin: .25rem 0 .65rem; }
+    .type-card.emphasis {
+      border: 2px solid var(--green-2);
+      background: #f0f7f1;
+    }
+
+    .example {
+      overflow: hidden;
+      margin: 2rem 0;
+      border: 1px solid #c8c6bb;
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .example-head {
+      display: flex;
+      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.35rem;
+      color: white;
+      background: #33493e;
+    }
+    .example-head b { color: white; }
+    .example-head span {
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .example-body { padding: 1.4rem; }
+    .example-body p:first-child { margin-top: 0; }
+    .example-body p:last-child { margin-bottom: 0; }
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: center;
+    }
+    .before, .after {
+      height: 100%;
+      padding: 1rem;
+      border-radius: 12px;
+    }
+    .before { background: var(--red-soft); }
+    .after { background: #e8f2e9; }
+    .arrow { color: var(--amber); font-size: 1.7rem; font-weight: 800; }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      gap: 1rem;
+      margin: 1.6rem 0;
+      padding: 0;
+      list-style: none;
+    }
+    .steps li {
+      counter-increment: step;
+      display: grid;
+      grid-template-columns: 3rem 1fr;
+      gap: 1rem;
+      padding: 1.15rem;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+    .steps li::before {
+      content: counter(step);
+      display: grid;
+      width: 2.6rem;
+      height: 2.6rem;
+      place-items: center;
+      color: white;
+      background: var(--green);
+      border-radius: 50%;
+      font-family: ui-monospace, monospace;
+      font-weight: 800;
+    }
+    .steps b { display: block; margin-bottom: .25rem; }
+    .steps p { margin: 0; }
+
+    table {
+      width: 100%;
+      margin: 1.5rem 0;
+      border-collapse: collapse;
+      background: var(--surface);
+      font-size: .93rem;
+    }
+    th, td {
+      padding: .8rem .9rem;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      color: white;
+      background: var(--green);
+    }
+
+    .traps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .trap {
+      padding: 1.2rem;
+      border-left: 4px solid var(--red);
+      border-radius: 0 12px 12px 0;
+      background: var(--red-soft);
+    }
+    .trap h3 { margin: 0 0 .4rem; color: #74332c; }
+    .trap p { margin: 0; }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: .7rem;
+      margin-top: 1.5rem;
+    }
+    .milestone {
+      padding: 1rem;
+      border-top: 5px solid var(--green-2);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+    .milestone b { display: block; }
+    .milestone small { color: var(--muted); }
+
+    .summary-box {
+      padding: clamp(1.3rem, 4vw, 2.2rem);
+      border-radius: var(--radius);
+      color: white;
+      background: linear-gradient(135deg, #173b2a, #315e47);
+      box-shadow: var(--shadow);
+    }
+    .summary-box h2, .summary-box strong { color: white; }
+    .summary-box .flow { margin-bottom: 0; }
+    .summary-box .flow-step {
+      color: var(--ink);
+      background: #fffdf8;
+    }
+
+    .glossary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .8rem;
+      margin: 1.5rem 0 0;
+    }
+    .glossary div {
+      padding: 1rem;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+    .glossary dt { color: var(--green); font-weight: 800; }
+    .glossary dd { margin: .25rem 0 0; color: var(--muted); }
+
+    footer {
+      padding: 2.5rem 1.5rem;
+      color: #d9e4dd;
+      background: #172b21;
+    }
+    footer div { max-width: var(--max); margin: auto; }
+    footer p { margin: .25rem 0; }
+    footer a { color: #f2c389; }
+
+    @media (max-width: 900px) {
+      .page { grid-template-columns: 1fr; }
+      .toc { position: static; }
+      .toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .flow { grid-template-columns: 1fr; }
+      .flow-step { min-height: auto; text-align: left; }
+      .flow-step:not(:last-child)::after {
+        content: "↓";
+        top: auto;
+        right: 50%;
+        bottom: -.92rem;
+        transform: translateX(50%);
+      }
+      .types, .journey { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .hero { padding-top: 4rem; }
+      .hero-answer { grid-template-columns: 1fr; }
+      .page { padding-inline: 1rem; }
+      .toc ol, .card-grid, .crux, .types, .traps, .journey, .glossary {
+        grid-template-columns: 1fr;
+      }
+      .matrix {
+        grid-template-columns: 2.6rem 1fr 1fr;
+        font-size: .86rem;
+      }
+      .matrix-cell { min-height: 170px; padding: .7rem; }
+      .before-after { grid-template-columns: 1fr; }
+      .arrow { text-align: center; transform: rotate(90deg); }
+      th, td { padding: .65rem; }
+    }
+    @media print {
+      body { background: white; font-size: 10.5pt; }
+      .hero { padding: 2rem; background: #173b2a !important; print-color-adjust: exact; }
+      .page { display: block; max-width: none; padding: 1.5rem; }
+      .toc { display: none; }
+      section { margin-bottom: 2.5rem; break-inside: avoid; }
+      .card, .type-card, .example, .matrix-cell, .steps li { box-shadow: none; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Richard P. Rumelt / The Crux</p>
+      <h1>『戦略の要諦』を<br>ゼロから理解する</h1>
+      <p class="hero-lead">
+        戦略は「大きな目標を掲げること」ではありません。複雑な現実を診断し、
+        結果を大きく動かせる攻略可能な一点を見つけ、そこへ力を集中することです。
+      </p>
+      <div class="hero-answer">
+        <span class="number">1</span>
+        <p><strong>企業が最初にすること：</strong>売上目標やビジョンを決める前に、いま直面している主要な難題と機会を洗い出し、「何が起きているか」「なぜ難しいか」を診断する。</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="page">
+    <nav class="toc" aria-label="ページ内目次">
+      <p>CONTENTS</p>
+      <ol>
+        <li><a href="#strategy">戦略とは何か</a></li>
+        <li><a href="#crux">最重要ポイント</a></li>
+        <li><a href="#challenge-types">課題の三分類</a></li>
+        <li><a href="#diagnosis">診断と選別</a></li>
+        <li><a href="#first-move">企業の最初の一手</a></li>
+        <li><a href="#advantage">強みと一貫性</a></li>
+        <li><a href="#traps">戦略を壊す誘惑</a></li>
+        <li><a href="#journey">近い目標と更新</a></li>
+        <li><a href="#foundry">戦略ファウンドリー</a></li>
+        <li><a href="#summary">全体の要約</a></li>
+      </ol>
+    </nav>
+
+    <main id="main">
+      <section id="strategy">
+        <span class="section-no">01 / DEFINITION</span>
+        <span class="type">知識の種類：定義</span>
+        <h2>戦略とは何か</h2>
+        <p class="lead">
+          戦略とは、組織の命運を左右する困難な課題、または逃せない機会に対処するために設計された
+          <strong>方針と行動の組み合わせ</strong>です。出発点は「欲しい結果」ではなく「立ちはだかる現実」です。
+        </p>
+
+        <div class="card-grid">
+          <article class="card not-strategy">
+            <h3>戦略ではないもの</h3>
+            <ul>
+              <li>「業界一位になる」という願望</li>
+              <li>売上高や利益率の数値目標</li>
+              <li>ビジョン、ミッション、スローガン</li>
+              <li>予算と活動項目を並べた長期計画</li>
+              <li>用意された案から選ぶだけの意思決定</li>
+            </ul>
+          </article>
+          <article class="card is-strategy">
+            <h3>戦略を構成するもの</h3>
+            <ul>
+              <li>現実の課題についての診断</li>
+              <li>成否を分ける難所の特定</li>
+              <li>自分たちの強みを使う攻略方針</li>
+              <li>互いに支え合う具体的な行動</li>
+              <li>何をしないかという選択</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="quote">目標は戦略の出発点ではなく、課題を診断して方針を選んだ結果として定まる。</p>
+
+        <div class="flow" aria-label="戦略策定の基本順序">
+          <div class="flow-step"><b>課題</b><small>何が起きているか</small></div>
+          <div class="flow-step"><b>診断</b><small>なぜ難しいか</small></div>
+          <div class="flow-step"><b>最重要ポイント</b><small>どこを動かすか</small></div>
+          <div class="flow-step"><b>方針と行動</b><small>どう攻略するか</small></div>
+          <div class="flow-step"><b>目標</b><small>次に何を達成するか</small></div>
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <b>通し事例：青葉産業</b>
+            <span>Fictional case</span>
+          </div>
+          <div class="example-body">
+            <p>法人向け機器メーカーの青葉産業は、ここ3年売上が横ばいです。経営会議は「3年で売上を30％伸ばす」と決め、新商品、海外進出、営業増員を同時に始めようとしています。</p>
+            <div class="before-after">
+              <div class="before"><strong>目標先行</strong><br>30％成長という希望から、活動を逆算する。なぜ売上が止まったかは未診断。</div>
+              <span class="arrow" aria-hidden="true">→</span>
+              <div class="after"><strong>課題先行</strong><br>顧客、競合、製品、営業、組織を調べ、成長を阻む原因を先に特定する。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="crux">
+        <span class="section-no">02 / THE CRUX</span>
+        <span class="type">知識の種類：定義＋判断基準</span>
+        <h2>最重要ポイント（Crux）</h2>
+        <p class="lead">
+          複雑な課題のすべてを一度に解くことはできません。本書の中心概念である「最重要ポイント」とは、
+          <strong>成否を大きく左右し、かつ力を集中すれば妥当な確率で克服できる難所</strong>です。
+        </p>
+
+        <div class="crux">
+          <div class="crux-visual" role="img" aria-label="複雑な障害の中で一箇所だけ光る最重要ポイント">
+            <div><b>Crux</b><br>突破すると、他の問題も動き始める一点</div>
+          </div>
+          <div class="crux-definition">
+            <h3>二つの条件を同時に満たす</h3>
+            <ol>
+              <li><strong>重要である：</strong>克服すれば前進が大きい。放置すれば存続や中心価値を脅かす。</li>
+              <li><strong>取り組み可能である：</strong>知識、能力、資源、権限、期間を考えると攻略の見込みがある。</li>
+            </ol>
+            <p>「最も難しい」「最も緊急」「最も目立つ」問題と同じとは限りません。重要でも動かせない問題は、現時点の攻撃対象ではありません。</p>
+            <p>Cruxは分析ツールから自動的に算出される答えではありません。状況の理解を深め、必要な前提を置き、選択肢を評価したうえで、戦略家自身の判断によって見極めます。組織の能力によっては少数のASCを扱えますが、それぞれで焦点を厳しく絞る必要があります。</p>
+            <p>Cruxは業務工程のボトルネックに限りません。相反する願望、権限不足、欠けている能力、顧客の未充足需要、大きな機会を利用する条件なども該当し得ます。</p>
+          </div>
+        </div>
+
+        <div class="matrix" aria-label="重要性と取り組み可能性の二軸">
+          <div class="blank"></div>
+          <div class="axis-x">取り組み可能性：低い</div>
+          <div class="axis-x">取り組み可能性：高い</div>
+          <div class="axis-y" style="grid-row: 2;">重要性：高い</div>
+          <div class="matrix-cell prepare"><b>分解・準備する</b><small>重要だが今は動かせない。制約緩和や能力構築を検討。</small></div>
+          <div class="matrix-cell focus"><b>戦略の有力候補</b><small>重要かつ攻略可能。ASC、そしてCruxを探す領域。</small></div>
+          <div class="axis-y" style="grid-row: 3;">重要性：低い</div>
+          <div class="matrix-cell"><b>棚上げする</b><small>注意と資源を使わない。</small></div>
+          <div class="matrix-cell"><b>通常の改善</b><small>実行してもよいが、戦略の中心には置かない。</small></div>
+        </div>
+
+        <div class="note">
+          <strong>ASCとは</strong>
+          Addressable Strategic Challenge。決定的に重要で、妥当な期間内に現実的に克服できる<strong>戦略課題</strong>を指します。
+          ASCが「取り組む価値のある課題」なのに対し、Cruxはその課題の成否を分ける<strong>攻略上の難所</strong>です。
+          課題の選別と理解を深める中で、ASCへの焦点化とCruxの見極めを往復します。両者は固定された一方向の工程ではありません。
+        </div>
+
+        <div class="note">
+          <strong>二軸は採点表ではない</strong>
+          重要性と取り組み可能性は、機械的な点数で自動判定するためのものではありません。評価が割れたとき、その理由を議論すると、情報、暗黙の前提、利害の違いを理解する手がかりが得られることがあります。
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <b>青葉産業：最重要ポイントを探す</b>
+            <span>Diagnosis</span>
+          </div>
+          <div class="example-body">
+            <p>調査の結果、製品性能は競合と同等でした。失注の多くは、顧客ごとに必要な導入設計を営業が提案できず、見積もりに6週間かかることから生じていました。</p>
+            <p><strong>最重要ポイント候補：</strong>営業・設計部門をまたぐ提案設計と見積もりの遅さ。ここを改善すれば、既存顧客の失注を減らし、新商品や海外進出より短期間で売上へ影響できる見込みがあります。</p>
+            <p>これは診断時点の判断です。戦略の前提を書き残し、その後の受注率と新しい情報に照らして前提が正しかったかを点検し、必要なら方針を修正します。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="challenge-types">
+        <span class="section-no">03 / CHALLENGE TYPES</span>
+        <span class="type">知識の種類：定義</span>
+        <h2>最初に、課題の種類を見分ける</h2>
+        <p class="lead">問題の種類によって使える解き方が違います。特に、未定義の戦略課題を「AかBか」の選択問題へ早々に縮めないことが重要です。</p>
+
+        <div class="types">
+          <article class="type-card">
+            <span class="num">01</span>
+            <h3>選択に関する課題</h3>
+            <p>選択肢は既知だが、不確実性や数値化できない要素があり、選ぶのが難しい。</p>
+            <p><strong>例：</strong>二つの既製設備のどちらを買うか。</p>
+          </article>
+          <article class="type-card">
+            <span class="num">02</span>
+            <h3>工学設計上の課題</h3>
+            <p>要求、制約、技術を組み合わせ、新しい製品や仕組みを設計する。</p>
+            <p><strong>例：</strong>低コストで耐久性のある新型機を設計する。</p>
+          </article>
+          <article class="type-card emphasis">
+            <span class="num">03</span>
+            <h3>途方もなく困難な課題</h3>
+            <p>問題も選択肢も因果関係も不明確で、複数の願望や利害が衝突している。</p>
+            <p><strong>例：</strong>事業の成長停滞をどう打開するか。</p>
+          </article>
+        </div>
+
+        <div class="warning note">
+          <strong>よくあるすり替え</strong>
+          「成長には海外進出か買収か」と問う前に、成長を阻む問題が本当に販路不足なのかを診断します。提示された二択が問題の本質を表している保証はありません。
+        </div>
+      </section>
+
+      <section id="diagnosis">
+        <span class="section-no">04 / DIAGNOSIS</span>
+        <span class="type">知識の種類：手法＋経験則</span>
+        <h2>診断：課題を収集・分類・選別する</h2>
+        <p class="lead">
+          診断は、データを集めるだけの作業ではありません。何を重要とみなし、どの因果関係を仮定し、
+          どの見方を捨てるかを通じて、複雑な現実を扱える形へ組み替える作業です。
+        </p>
+
+        <ol class="steps">
+          <li>
+            <div><b>収集</b><p>難題と機会を広く洗い出す。最初に思いついた問題へ飛びつかない。</p></div>
+          </li>
+          <li>
+            <div><b>分類</b><p>複合問題を要素へ分け、原因や性質でまとめ直す。分類に唯一の正解はない。</p></div>
+          </li>
+          <li>
+            <div><b>選別</b><p>緊急性を確認した後、重要性と取り組み可能性を評価し、少数のASCへ絞る。</p></div>
+          </li>
+          <li>
+            <div><b>設計</b><p>複数の攻略案を考え、既知の事実、利用できる強み、競争相手の反応と照合する。</p></div>
+          </li>
+          <li>
+            <div><b>再検討</b><p>最初の答えを保留し、前提、因果関係、代替案を見直す。診断と設計を往復する。</p></div>
+          </li>
+        </ol>
+
+        <h3>洞察を助ける経験則</h3>
+        <table>
+          <thead><tr><th>経験則</th><th>何をするか</th><th>注意点</th></tr></thead>
+          <tbody>
+            <tr><td>類推</td><td>他社、他産業、他時代の似た状況を複数探す</td><td>表面ではなく、結果を生んだ因果関係を比べる</td></tr>
+            <tr><td>リフレーミング</td><td>顧客、競合、現場、規制者など別の視点から見る</td><td>好ましい見方だけを選ばない</td></tr>
+            <tr><td>前提の言語化</td><td>当然視している条件を書き出す</td><td>事実か、変更可能かを確かめる</td></tr>
+            <tr><td>再分類・比較</td><td>データの分類軸や比較対象を変える</td><td>分析道具の適用範囲を確認する</td></tr>
+            <tr><td>「なぜ」の反復</td><td>症状の背後にある阻害要因を掘る</td><td>最初のもっともらしい説明で止めない</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>分析ツールの位置づけ</strong>
+          フレームワークは問いを作る道具です。戦略を自動生成する装置ではありません。たとえば5フォース分析は産業構造の収益性を見る道具であり、個別企業間の業績差を直接説明するとは限りません。
+        </div>
+      </section>
+
+      <section id="first-move">
+        <span class="section-no">05 / FIRST MOVE</span>
+        <span class="type">知識の種類：手法</span>
+        <h2>企業が最初に着手すること</h2>
+        <p class="lead">
+          全体会議で目標を決める前に、意思決定権と事業知識を持つ少人数を集め、
+          集団の空気に汚染されていない情報を個別に収集します。
+        </p>
+
+        <h3>着手できる状態か</h3>
+        <ul>
+          <li>CEOまたは事業責任者が参加し、資源配分と優先順位を変えられる。</li>
+          <li>会議にいない上位者が後から決定を覆す状態ではない。</li>
+          <li>製品、市場、顧客、競争、技術、業務を理解する参加者がいる。</li>
+          <li>既定の目標や施策を再考できる。</li>
+          <li>予算編成や業績評価とは別の場として扱う。</li>
+        </ul>
+
+        <h3>議論前の三つの準備と、判断の保留</h3>
+        <div class="card-grid">
+          <article class="card">
+            <h3>1. 事実を調べる</h3>
+            <p>企業、顧客、競争、技術、規制の変化と、過去の計画・結果を調べます。成功・失敗の当時の条件まで確認します。</p>
+          </article>
+          <article class="card">
+            <h3>2. 個別に聞く</h3>
+            <p>主要人物へ非公開でインタビューし、全体会議では言いにくい問題、対立、失敗、解決案を集めます。</p>
+          </article>
+          <article class="card">
+            <h3>3. 書面で答えてもらう</h3>
+            <p>最近と将来の変化、施策の成否、最優先課題、阻害要因、考えられる打ち手について、相談せず個別に回答してもらいます。</p>
+          </article>
+          <article class="card">
+            <h3>4. 判断を保留する</h3>
+            <p>情報が集まるまで「重要／不要」「良い／悪い」を決めず、最重要ポイントが分かる前に行動計画を作りません。</p>
+          </article>
+        </div>
+
+        <p class="quote">先に集めるべきものは「賛成」ではなく、異なる認識、不都合な事実、解決を阻む要因である。</p>
+      </section>
+
+      <section id="advantage">
+        <span class="section-no">06 / ADVANTAGE &amp; COHERENCE</span>
+        <span class="type">知識の種類：判断基準＋作用原理＋原則</span>
+        <h2>強みを使い、行動を一貫させる</h2>
+        <p class="lead">
+          最重要ポイントを選んだら、攻略に使える強みを探します。強みとは単なる得意分野ではなく、
+          <strong>競争相手との非対称性</strong>であり、利益や攻略への貢献を合理的に期待できる差です。
+        </p>
+
+        <div class="card-grid">
+          <article class="card"><h3>情報</h3><p>他社が知らない顧客理解や現場情報。</p></article>
+          <article class="card"><h3>ノウハウ</h3><p>固有の技術、スキル、特許、経験。</p></article>
+          <article class="card"><h3>地位</h3><p>ブランド、評判、流通や市場での位置。</p></article>
+          <article class="card"><h3>効率</h3><p>規模、経験、技術による模倣困難なコスト差。</p></article>
+          <article class="card"><h3>組織運営</h3><p>機敏さ、連携、意思決定の速さ。</p></article>
+          <article class="card"><h3>優位性を作る：組み合わせ</h3><p>五つの基本領域とは別に、既存知識と新需要などを他社がまねにくい形で結びつける。</p></article>
+        </div>
+
+        <div class="note">
+          <strong>分類は証明ではない</strong>
+          情報・ノウハウ・地位・効率・組織運営という五つは、強みを探す基本領域です。「組み合わせ」は既存資源から優位性を作る方法の一つです。何かに該当するだけでは強みにならず、競合との非対称性があり、利益とCrux攻略への貢献を合理的に期待できるかを判断します。
+        </div>
+
+        <h3>一貫性とは何か</h3>
+        <p>選んだ方針と個々の行動が矛盾せず、互いを支え合う状態です。フォーカスには資源を集中するだけでなく、他の課題を棚上げすることが含まれます。全員の願望を同時に満たそうとすると、行動が相互に打ち消し合います。</p>
+
+        <div class="example">
+          <div class="example-head">
+            <b>青葉産業：攻略方針と一貫した行動</b>
+            <span>Coherent action</span>
+          </div>
+          <div class="example-body">
+            <p><strong>方針：</strong>既存顧客向けの提案設計と見積もりを高速化し、「導入判断のしやすさ」で競合との差を作る。</p>
+            <ul>
+              <li>経験豊富な設計者と営業担当から小さな横断チームを作る。</li>
+              <li>過去案件の設計知識を標準モジュール化する。</li>
+              <li>営業が初期設計できる教育とツールへ資源を移す。</li>
+              <li>海外進出と製品ライン拡張は、当面棚上げする。</li>
+            </ul>
+            <p>行動が同じボトルネックへ作用し、同時に「しないこと」が決まっているため、一貫性があります。</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="traps">
+        <span class="section-no">07 / FAILURE MODES</span>
+        <span class="type">知識の種類：失敗パターン</span>
+        <h2>戦略を壊す代表的な誘惑</h2>
+        <div class="traps">
+          <article class="trap">
+            <h3>目標と戦略の混同</h3>
+            <p>成長率や市場シェアを先に決めても、実現方法は分かりません。非現実的な数値は数字の操作を誘発します。</p>
+          </article>
+          <article class="trap">
+            <h3>予算計画化</h3>
+            <p>売上予測、業績目標、予算配分だけでは財務計画です。重大な課題の原因を扱わなければ戦略ではありません。</p>
+          </article>
+          <article class="trap">
+            <h3>短期財務への過集中</h3>
+            <p>現在の利益は主に過去の判断の収穫です。四半期数字のために研究開発や能力構築を削ると、将来価値を損ないます。</p>
+          </article>
+          <article class="trap">
+            <h3>早すぎる合意</h3>
+            <p>結論が事前に決まっていると、会議は既定案の正当化になります。反証情報と代替案が排除されます。</p>
+          </article>
+          <article class="trap">
+            <h3>相反する願望の併存</h3>
+            <p>すべてを守ろうとして解がなくなる「空集合」。少なくとも一つの願望か制約を緩める必要があります。</p>
+          </article>
+          <article class="trap">
+            <h3>権限のない責任者</h3>
+            <p>資源配分や部門間調整を変える権限がなければ、戦略ステートメントを発表しても実行できません。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="journey">
+        <span class="section-no">08 / NAVIGATION</span>
+        <span class="type">知識の種類：定義＋原則</span>
+        <h2>戦略は、近い目標をつなぐ旅</h2>
+        <p class="lead">
+          一度の計画ですべてを解決することはできません。難所を越えると新しい情報と次の難所が現れます。
+          そこで、長期的な願望を固定計画へ変えるのではなく、達成可能な「近い目標」をつなぎます。
+        </p>
+
+        <h3>長期的な方向との違い</h3>
+        <p>
+          「近い目標」と対比すべきものは、期間が長い目標だけではありません。
+          長期的な野心・ビジョンと、診断に裏付けられない長期目標を区別する必要があります。
+        </p>
+
+        <table>
+          <thead><tr><th>種類</th><th>役割</th><th>戦略との関係</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>長期的な野心・ビジョン</td>
+              <td>望ましい方向、価値観、動機を示す</td>
+              <td>戦略の材料にはなるが、現在の課題や実現方法は示さない</td>
+            </tr>
+            <tr>
+              <td>裏付けのない長期目標</td>
+              <td>将来の地位、成長率、利益などの望ましい結果を掲げる</td>
+              <td>診断より先に置くと、戦略を既定目標の達成計画へすり替える</td>
+            </tr>
+            <tr>
+              <td>近い目標</td>
+              <td>比較的短い期間内に達成可能な目標またはタスクを示す</td>
+              <td>課題の診断、Crux、攻略方針から結果として導かれる</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <strong>名称や年数ではなく、役割で判別する</strong>
+          同じ「10年後に最も信頼される組織になる」という文でも、方向と価値観を示すならビジョンです。診断をせず達成必須の結果として固定し、そこから行動を逆算するなら、裏付けのない長期目標になります。
+        </div>
+
+        <div class="note">
+          <strong>長期的な野心を否定するわけではない</strong>
+          野心や価値観は方向を与えます。ただし、組織には複数の願望があり、すべてを同時に実現することはできません。現実の課題、資源、競争状況に照らして選別し、どの野心を進め、どれを棚上げするか判断します。
+        </div>
+
+        <div class="flow" aria-label="長期的な野心から近い目標への関係">
+          <div class="flow-step"><b>方向</b><small>野心・価値観</small></div>
+          <div class="flow-step"><b>現実</b><small>課題・機会・制約・資源</small></div>
+          <div class="flow-step"><b>戦略</b><small>診断、Crux、攻略方針</small></div>
+          <div class="flow-step"><b>近い目標</b><small>いま達成可能なタスク</small></div>
+          <div class="flow-step"><b>更新</b><small>結果と前提を点検し次へ</small></div>
+        </div>
+
+        <div class="journey">
+          <div class="milestone"><b>近い目標 1</b><small>短期間で達成できる具体的タスク</small></div>
+          <div class="milestone"><b>結果を観察</b><small>何が変わり、何を学んだか</small></div>
+          <div class="milestone"><b>前提を点検</b><small>出発時の見方は正しかったか</small></div>
+          <div class="milestone"><b>次の難所へ</b><small>方針と目標を更新する</small></div>
+        </div>
+
+        <div class="example">
+          <div class="example-head">
+            <b>青葉産業：近い目標</b>
+            <span>Proximate objective</span>
+          </div>
+          <div class="example-body">
+            <p>「3年で30％成長」ではなく、まず6カ月で主要製品の初回提案から見積もりまでを6週間から10営業日へ短縮します。達成方法を想像でき、最重要ポイントへ直接作用し、結果から次の判断材料を得られる目標です。</p>
+          </div>
+        </div>
+
+        <div class="note">
+          <strong>「近い」の期間</strong>
+          <strong>固定値はありません。</strong>課題と能力に応じて、行動と達成方法を具体的に想像できる期間を選びます。著者個人の運営例では18カ月を設定することが多いとされますが、青葉産業の6カ月と同じく、普遍的な基準ではありません。
+        </div>
+
+        <div class="note">
+          <strong>短期業績目標との違い</strong>
+          期間が短く数値化されているだけでは、近い目標になりません。近い目標は、診断した課題への集中から導かれる、比較的短い期間内に達成可能な目標またはタスクです。期間を区切ることで、行動を具体的に想像しやすくし、次の段階へ進む足場を作ります。
+        </div>
+
+        <div class="note">
+          <strong>戦略ナビゲーション</strong>
+          戦略を立てた時点の前提を書き残し、事態の展開に応じて正しかったかを確認し、必要なら針路を修正するプロセスです。
+        </div>
+      </section>
+
+      <section id="foundry">
+        <span class="section-no">09 / STRATEGY FOUNDRY</span>
+        <span class="type">知識の種類：定義＋手法</span>
+        <h2>組織で考える「戦略ファウンドリー」</h2>
+        <p class="lead">
+          戦略ファウンドリーとは、少人数の主要幹部が課題を共有・診断し、最重要ポイントと一貫した行動方針を作る場です。
+          予算会議や、担当部署が作った案の承認会議ではありません。
+        </p>
+
+        <table>
+          <thead><tr><th>設計項目</th><th>本書が示す目安・条件</th><th>理由</th></tr></thead>
+          <tbody>
+            <tr><td>参加者</td><td>10人未満、できれば8人以下。CEOまたは事業責任者を含む</td><td>率直な議論と実行権限を両立する</td></tr>
+            <tr><td>期間</td><td>通常業務から離れ、複雑さに応じて2～5日程度</td><td>日常の予算・業務議論へ引き戻されないため</td></tr>
+            <tr><td>準備</td><td>事実調査、非公開面談、5～8項目程度の書面質問</td><td>権力差や同調圧力の前に情報を集める</td></tr>
+            <tr><td>進行</td><td>課題特定 → 診断 → 解決策 → 行動方針</td><td>最重要ポイントより先に施策を決めない</td></tr>
+            <tr><td>検証</td><td>参照事例、追加調査、レッドチーム、前提の記録</td><td>楽観・確証・経験バイアスを弱める</td></tr>
+          </tbody>
+        </table>
+
+        <div class="warning note">
+          <strong>限界</strong>
+          著者自身、優れた戦略を確実に生む最善のプロセスは確立されていないと認めています。戦略ファウンドリーは議論の質を高める方法であって、正解を自動生成する公式ではありません。
+        </div>
+      </section>
+
+      <section id="summary">
+        <div class="summary-box">
+          <span class="section-no">10 / SUMMARY</span>
+          <h2>全体を一つの流れで捉える</h2>
+          <p>よい戦略は、野心の大きさではなく、現実への診断、攻略点の選択、強みを使う方針、行動の一貫性で決まります。</p>
+          <div class="flow" aria-label="本書全体の要約">
+            <div class="flow-step"><b>現実を見る</b><small>課題と機会を広く集める</small></div>
+            <div class="flow-step"><b>構造を診る</b><small>原因、制約、対立を理解する</small></div>
+            <div class="flow-step"><b>焦点を定める</b><small>ASCとCruxを往復して見極める</small></div>
+            <div class="flow-step"><b>力を集める</b><small>非対称な強みと一貫した行動</small></div>
+            <div class="flow-step"><b>学んで進む</b><small>近い目標、前提点検、軌道修正</small></div>
+          </div>
+        </div>
+
+        <h3>用語の最終確認</h3>
+        <dl class="glossary">
+          <div><dt>戦略</dt><dd>困難な課題へ対処するために設計された方針と行動の組み合わせ。</dd></div>
+          <div><dt>最重要ポイント（Crux）</dt><dd>成否を左右し、集中すれば妥当な確率で克服できる難所。</dd></div>
+          <div><dt>ASC</dt><dd>重要で、妥当な期間内に現実的に取り組める戦略課題。</dd></div>
+          <div><dt>フォーカス</dt><dd>選んだ対象へ力を集中し、他の課題を棚上げすること。</dd></div>
+          <div><dt>近い目標</dt><dd>診断と方針から導かれる、短期間で達成可能な具体的タスク。</dd></div>
+          <div><dt>戦略ナビゲーション</dt><dd>前提を記録・点検し、状況変化に応じて方針を修正すること。</dd></div>
+        </dl>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div>
+      <p><strong>原典：</strong>リチャード・P・ルメルト著、村井章子訳『戦略の要諦』</p>
+      <p>このページは読書ハイライトを基に、初学者向けの解説として再構成したものです。引用集ではなく、著者の論旨を要約しています。</p>
+      <p><a href="books/戦略の要諦.md">知識ベースの書籍要約を見る</a></p>
+    </div>
+  </footer>
+</body>
+</html>
